@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const printQuote = require('./quote').printQuote
 
-var apiURL = 'https://dvfmqijzho.localtunnel.me'
+var apiURL = 'https://citriquotes.localtunnel.me'
 var count = 0
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +41,7 @@ app.get('/quotes/', function (req, res) {
 
 app.get('/quotes/:name', function (req, res) {
 	var url = apiURL + '/quotes/'
-	var constructedURL = apiURL + req.params['name']
+	var constructedURL = url + req.params['name']
 
 	request(constructedURL, function(err, response, body) {
 		if (!err && response.statusCode == 200) {
